@@ -1,9 +1,13 @@
 name: Deploy to GitHub Pages
 
+permissions:
+  contents: read
+  pages: write
+  id-token: writes
+
 on:
   push:
-    branches:
-      - main # або вкажіть іншу гілку, яку використовуєте для деплою
+    branches: ["master"]
 
 jobs:
   deploy:
