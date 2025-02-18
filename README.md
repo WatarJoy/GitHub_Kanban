@@ -58,6 +58,11 @@ yarn dev
 
 The application will be available at `http://localhost:5173`.
 
+## Testing with Cypress:
+```bash
+npm run test
+```
+
 ## Used technologies:
 
 1. TypeScript
@@ -65,3 +70,4 @@ The application will be available at `http://localhost:5173`.
 3. Zustand
 4. ChakraUI
 5. react-dnd
+6. Cypress
