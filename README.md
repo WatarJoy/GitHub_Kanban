@@ -1,6 +1,6 @@
 # GitHub Kanban
 
-This project is a web-based Kanban board application developed using React, TypeScript, and Vite. It integrates with the GitHub API to manage issues directly from GitHub repository.
+This project is a web-based Kanban board application developed using React, TypeScript, and Vite. It uses GitHub API to manage issues from GitHub repository.
 
 ## Demo
 
