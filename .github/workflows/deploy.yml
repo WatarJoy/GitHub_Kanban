@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy Frontend
 
 permissions:
   contents: read
@@ -7,30 +7,35 @@ permissions:
 
 on:
   push:
-    branches: ["master"]
+    branches: ['master']
+  workflow_dispatch:
 
 jobs:
-  deploy:
+  build_frontend:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "18"
-          cache: "npm"
-
-      - name: Install dependencies
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set working directory to frontend
+        working-directory: ./
+        run: echo "Building frontend..."
+      - name: Install frontend dependencies
+        working-directory: ./
         run: npm ci
-
-      - name: Build the project
+      - name: Build site
+        working-directory: ./
         run: npm run build
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
 
+  deploy_frontend:
+    needs: build_frontend
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
         with:
           branch: gh-pages
-          publish_dir: ./dist
+          folder: ./dist
