@@ -78,7 +78,7 @@ const App: React.FC = () => {
         <Box mb={4}>
           <HStack gap={4}>
             <Link
-              color="teal.500"
+              color="blue"
               href={`https://github.com/${owner}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -87,7 +87,7 @@ const App: React.FC = () => {
               {owner}'s Profile
             </Link>
             <Link
-              color="teal.500"
+              color="blue"
               href={`https://github.com/${repoKey}`}
               target="_blank"
               rel="noopener noreferrer"

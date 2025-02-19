@@ -77,9 +77,9 @@ const IssueCard: React.FC<IssueCardProps> = ({
   const style = {
     opacity: isDragging ? 0.5 : 1,
     padding: "8px",
-    border: "1px solid #ccc",
-    borderRadius: "4px",
-    backgroundColor: "white",
+    border: "2px solid #929292",
+    borderRadius: "10px",
+    backgroundColor: "lightgrey",
     width: "100%",
     cursor: "move",
     marginBottom: "4px",
@@ -91,21 +91,26 @@ const IssueCard: React.FC<IssueCardProps> = ({
         href={`https://github.com/${repoKey}/issues/${issue.number}`}
         target="_blank"
         fontWeight="bold"
+        color="black"
       >
         {issue.title}
       </Link>
-      <Text color="grey.500" opacity={0.7} mr={4} textAlign="left">
+      <Text color="#252525">
         #{issue.number} Opened{" "}
         {formatDistance(subDays(new Date(), 3), issue.created_at)} ago
       </Text>
       <Text>
-        <Link href={`https://github.com/${issue.user.login}`} target="_blank">
+        <Link
+          href={`https://github.com/${issue.user.login}`}
+          target="_blank"
+          color="#5a00bf"
+        >
           {issue.user.login === "assigned-user"
             ? "User not assigned yet"
             : issue.user.login}
         </Link>
         {" | "}
-        <Text as="span" color="gray.500" opacity={0.7}>
+        <Text as="span" color="black">
           Comments: {issue.comments}
         </Text>
       </Text>

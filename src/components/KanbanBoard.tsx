@@ -60,7 +60,7 @@ const KanbanBoard: React.FC<{ repoKey: string }> = ({ repoKey }) => {
         const isEmpty = board.columns[col].length === 0;
 
         return (
-          <Box key={col} p={4} bg="gray.50" borderRadius="md" flex="1">
+          <Box key={col} p={4} bg="gray.muted" borderRadius="md" flex="1">
             <Heading as="h3" size="md" mb={2}>
               {col === "todo"
                 ? "ToDo"
@@ -72,7 +72,7 @@ const KanbanBoard: React.FC<{ repoKey: string }> = ({ repoKey }) => {
               gap={2}
               minHeight="100px"
               border="1px dashed"
-              borderColor="gray.300"
+              borderColor="gray.400"
               p={2}
             >
               {isEmpty ? (
